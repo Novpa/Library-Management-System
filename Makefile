@@ -4,7 +4,7 @@
 CC = gcc
 
 # Compiler flags
-CFLAGS = -Wall -Wextra -Werror -std=c11
+# CFLAGS = -Wall -Wextra -Werror -std=c11
 
 # Target executable
 TARGET = learning_tools

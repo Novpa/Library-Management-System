@@ -2,23 +2,35 @@
 #include <stdlib.h>
 #include <string.h>
 
+// This works for sorted data only
+int interpolationSearcher(int* arr, int search){
+  int higher = sizeof(arr)/sizeof(arr[0]) - 1;
+  int lower = 0;
+  int result = lower + (search - arr[lower])  * (higher - lower) / (arr[higher] -  arr[lower]);
+ if(arr[result] == search){
+  return result;
+ } else if(arr[result] < search){
+  lower = result + 1;
+ } else if(arr[result] > search){
+  higher = result - 1;
+ }
+
+}
+
 int main(){
 
-FILE* fp;
-char myChar1;
-int i = 0;
-fp = fopen("myFirstFile.txt", "r");
+int search;
+int arr[] = {1,2,3,4,5,6,7,8,9,10,11,16,20};
+  printf("Search number (1 - 11) in the data: ");
+  scanf("%d", &search);
 
-if(fp != NULL) {
+int result = interpolationSearcher(arr, search);
 
-    while(!feof(fp)) {
-      myChar1 = fgetc(fp);
-      printf("%c", myChar1);
-      if(myChar1 == '\n')
-      i++;
-    }
-      printf("\nThere are %d rows in it", i+1);
-    fclose(fp);
-  }
+printf("result = %d\n", result);
   return 0;
 }
+  // l = index of lower element
+  // h = index of higher element
+  // x = value of element will be searched
+  // Formula = l + ((x - a[l])/(a[h] - a[l])) * (h - l);
+  
