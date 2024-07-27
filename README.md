@@ -9,9 +9,13 @@ This Book Management System is a console-based application written in C that all
 ## Features
 
 - **Input Book Data**: Add new books to the database.
+
 <img src="add.png" alt="add" width="1000">
+
 - **View Book Data**: Display all books in the database.
+
 <img src="list.png" alt="List" width="1000">
+
 - **Delete Book Data**: Remove books from the database.
 - **Input Sales History**: Record sold books.
 - **View Sales History**: Display sold books history.
