@@ -11,5 +11,6 @@
   // Language-specific settings for C++
   "[cpp]": {
     "editor.defaultFormatter": "xaver.clang-format"
-  }
+  },
+  "C_Cpp.errorSquiggles": "disabled"
 }
