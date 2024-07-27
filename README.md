@@ -20,29 +20,6 @@ This Book Management System is a console-based application written in C that all
 - `main.c`: Contains the main application logic.
 - `README.md`: This file.
 
-## Functions
-
-### `void welcome()`
-Displays the main menu and prompts the user to choose an option.
-
-### `void inputData()`
-Allows the user to input new book data into the system.
-
-### `void outputData()`
-Displays the list of books currently stored in the database.
-
-### `void deleteData()`
-Deletes a book record based on the provided code.
-
-### `void inputSellingData()`
-Allows the user to input data for sold books into the sales history.
-
-### `void outputSellingData()`
-Displays the sales history.
-
-### `void deleteHistoryData()`
-Deletes a sales history record based on the provided code.
-
 ## Example Usage
 
 1. **Run the Program**: Execute the program in a console environment.
