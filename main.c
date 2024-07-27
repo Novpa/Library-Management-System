@@ -32,6 +32,7 @@ void clearConsole() {
 }
 
 void welcome();
+void thankYou();
 
 struct bookManagement {
     char code[10];
@@ -56,7 +57,6 @@ void inputData() {
         }
     }
     while (1) {
-        char key;
         clearConsole();
         printf("\nCode: ");
         fgets(BookManagement.code, sizeof(BookManagement.code), stdin);
@@ -71,10 +71,10 @@ void inputData() {
         fgets(BookManagement.price, sizeof(BookManagement.price), stdin);
         fwrite(&BookManagement, sizeof(BookManagement), 1, fp);
         removeNewline(BookManagement.price);
-        printf("\n\nBook has been added!!\n");
-        printf("Press esc to exit");
-        key = getche();
-        if (key == 27) break;
+        printf("\n\nBook has been added : %s\n", BookManagement.bookName);
+        printf("Press enter to continue...");
+        getchar();
+        break;
     }
     fclose(fp);
 }
@@ -173,7 +173,6 @@ void inputSellingData() {
         }
     }
     while (1) {
-        char key;
         clearConsole();
         printf("\n\n*** INPUT THE SOLD BOOK DATAS ***\n");
         printf("\nCode: ");
@@ -190,9 +189,9 @@ void inputSellingData() {
         fwrite(&BookManagement, sizeof(BookManagement), 1, fp);
         removeNewline(BookManagement.price);
         printf("\n\nBook has been sold : %s\n", BookManagement.bookName);
-        printf("Press esc to main menu...");
-        key = getche();
-        if (key == 27) break;
+        printf("Press enter to continue...");
+        getchar();
+        break;
     }
     fclose(fp);
 }
@@ -302,7 +301,9 @@ int main() {
                 break;
             case 6:
                 break;
-
+            case 7:
+                inputData();
+                break;
             default:
                 printf("Press enter...");
                 getchar();
@@ -318,6 +319,8 @@ int main() {
         clearInputBuffer();
         mainChoice(choice);
     } while (choice != 6);
+    thankYou();
+    getchar();
 }
 
 void welcome() {
@@ -338,7 +341,37 @@ void welcome() {
     printf("|  4. Delete History                             |\n");
     printf("|  5. Delete Buku                                |\n");
     printf("|  6. Exit                                       |\n");
+    printf("|  7. Tambah List Buku                           |\n");
     printf("|  --------------------------------------------  |\n");
+
+    printf("\n");
+
+    printf("|  If this is your first time using the app,     |\n");
+    printf("|  please add some book first by choosing menu 7.|\n");
+    printf("|                                                |\n");
+
+    printf("\n");
+
+    printf("************************************************\n");
+}
+
+void thankYou() {
+    clearConsole();
+    printf("\n\n|**********************************************|\n");
+    printf("|                                              |\n");
+    printf("|                THANK YOU FOR USING           |\n");
+    printf("|                OUR BOOK MANAGEMENT SYSTEM    |\n");
+    printf("|                                              |\n");
+    printf("|**********************************************|\n");
+
+    printf("\n");
+
+    printf("|                                              |\n");
+    printf("|   We hope you found the system useful.       |\n");
+    printf("|   If you have any feedback, please let us    |\n");
+    printf("|   know. Have a great day!                    |\n");
+    printf("|                                              |\n");
+    printf("|                                              |\n");
 
     printf("\n");
 
