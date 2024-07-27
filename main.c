@@ -337,11 +337,11 @@ void welcome() {
     printf("|  --------------------------------------------  |\n");
     printf("|  1. Input                                      |\n");
     printf("|  2. View History                               |\n");
-    printf("|  3. View Buku                                  |\n");
+    printf("|  3. View Book                                  |\n");
     printf("|  4. Delete History                             |\n");
-    printf("|  5. Delete Buku                                |\n");
+    printf("|  5. Delete Book                                |\n");
     printf("|  6. Exit                                       |\n");
-    printf("|  7. Tambah List Buku                           |\n");
+    printf("|  7. Add Book List                              |\n");
     printf("|  --------------------------------------------  |\n");
 
     printf("\n");
