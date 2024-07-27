@@ -1,3 +1,4 @@
+#include <conio.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -30,72 +31,51 @@ void clearConsole() {
 #endif
 }
 
-typedef struct bookManagement {
-    int code;
+struct bookManagement {
+    char code[10];
     char bookName[256];
     char bookType[256];
-    int price;
+    char price[15];
 } BookManagement;
 
-void inputData(BookManagement *newBookData) {
-    printf("Code: ");
-    scanf("%d", &newBookData->code);
-    clearInputBuffer();
-    printf("Book Name: ");
-    fgets(newBookData->bookName, sizeof(newBookData->bookName), stdin);
-    removeNewline(newBookData->bookName);
-    printf("Book Type: ");
-    fgets(newBookData->bookType, sizeof(newBookData->bookType), stdin);
-    removeNewline(newBookData->bookType);
-    printf("Price: ");
-    scanf("%d", &newBookData->price);
-}
-
-void readText(BookManagement *newBookData) {
-    char name[256];
-    char type[256];
+void inputData() {
     FILE *fp;
-    // char buffer[255];  // Buffer to store the text read from the file
-
-    fp = fopen("file.txt", "r");  // Open the file in read mode
-    if (fp != NULL) {
-        // Read each line from the file and print it to the console
-
-        fscanf(fp, "%d", &newBookData->code);
-        printf("Code: %d\n", newBookData->code);
-        while (fgets(name, sizeof(name), fp));
-        printf("Book Name: %s\n", newBookData->bookName);
-        while (fgets(type, sizeof(type), fp));
-        printf("Book Type: %s\n", newBookData->bookType);
-        fscanf(fp, "%d", &newBookData->price);
-        printf("Price: %d\n", newBookData->price);
-    } else {
-        printf("Failed to open file for reading.\n");
-        fclose(fp);
+    fp = fopen("file.txt", "a+");
+    if (fp == NULL) {
+        fp = fopen("file.txt", "w+");
+        {
+            clearConsole();
+            printf(
+                "Please hold on while we set our database in your computer!!");
+            printf("\n Process completed press any key to continue!! ");
+            getchar();
+        }
     }
-}
-
-void insertText(BookManagement *newBookData) {
-    FILE *fp;
-    fp = fopen("file.txt", "a");
-    if (fp != NULL) {
-        inputData(newBookData);
-        fprintf(fp, "%d ", newBookData->code);
-        fprintf(fp, "%s \n", newBookData->bookName);
-        fprintf(fp, "%s \n", newBookData->bookType);
-        fprintf(fp, "%d ", newBookData->price);
-        fclose(fp);
-    } else {
-        printf("Failed to open file for writing.\n");
+    while (1) {
+        char key;
+        clearConsole();
+        printf("\nCode: ");
+        fgets(BookManagement.code, sizeof(BookManagement.code), stdin);
+        removeNewline(BookManagement.code);
+        printf("Book Name: ");
+        fgets(BookManagement.code, sizeof(BookManagement.bookName), stdin);
+        removeNewline(BookManagement.bookName);
+        printf("Book Type: ");
+        fgets(BookManagement.bookType, sizeof(BookManagement.bookType), stdin);
+        removeNewline(BookManagement.bookType);
+        printf("Price: ");
+        fgets(BookManagement.bookName, sizeof(BookManagement.bookName), stdin);
+        fwrite(&BookManagement, sizeof(BookManagement), 1, fp);
+        removeNewline(BookManagement.bookName);
+        printf("\n\nBook has been added!!\n");
+        printf("Press esc to exit");
+        key = getche();
+        if (key == 27) break;
     }
+    fclose(fp);
 }
 
 int main() {
-    BookManagement newBookData;
-    // inputData(&newBookData;);
-    insertText(&newBookData);
-
-    readText(&newBookData);
-
+    inputData();
     return 0;
 }
