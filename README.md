@@ -3,7 +3,9 @@
 ## Overview
 
 This Book Management System is a console-based application written in C that allows users to manage books in a library. The application provides functionalities to input, view, delete book records, and manage sales history.
-<img src="beforesubmitting.png" alt="Before Submitting" width="500">
+<img src="interface.png" alt="Interface" width="700">
+<img src="list.png" alt="List" width="700">
+<img src="add.png" alt="add" width="700">
 ## Features
 
 - **Input Book Data**: Add new books to the database.
