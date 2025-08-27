@@ -85,10 +85,7 @@ void outputData() {
     fp = fopen("databuku.txt", "r");
     if (fp != NULL) {
         clearConsole();
-        // printf("\nCode\t ");
-        // printf("\tName\t");
-        // printf("\tType\t ");
-        // printf("\tPrice\n");
+
         printf(
             "================================================================="
             "\n");
@@ -202,10 +199,7 @@ void outputSellingData() {
     fp = fopen("history.txt", "r");
     if (fp != NULL) {
         clearConsole();
-        // printf("\nCode\t ");
-        // printf("\tName\t");
-        // printf("\tType\t ");
-        // printf("\tPrice\n");
+
         printf(
             "================================================================="
             "\n");
